@@ -249,7 +249,11 @@ func main() {
 		},
 	}
 
-	app.Run(os.Args)
+	err := app.Run(os.Args)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(3)
+	}
 }
 
 func getParams(ctx *cli.Context) *cloudwatch.GetMetricStatisticsInput {
